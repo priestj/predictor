@@ -17,6 +17,9 @@ exports.list = function(model, req){
     }
     
   return screenContent.join("</br>");
+  
+  
+  
 };
 
 exports.create = function(res){
