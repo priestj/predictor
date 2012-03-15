@@ -9,6 +9,7 @@
 // 3. Move out the view aspects (rendering into the views) - partial, see list as example - done now in user_v
 var User = require('../models/user_m'); //used to find the user
 var View = require('../views/authentication_v');
+var Password = require('password');//nicked off web not brilliantly secure but will do for the moment
 
 //below is how we might want the controller to typically behave, the list action shows the controller finding the user
 //then calling the view (list) method to build the content, and then using the res.send to send it to the screen
@@ -30,7 +31,8 @@ exports.loginAuthenticate = function (req, res) {
             //hold the created user in a session variable so we could display
             //it on the next view (our redirect to users)
             if (userFound) {
-                if (req.body.login.password == userFound.password) {
+               // if ( req.body.login.password == userFound.password){
+                if (Password.validate(userFound.password, req.body.login.password)) {
 
                     req.session.newUserName = userFound.userName;
                     req.session.loggedIn = true;
