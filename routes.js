@@ -35,7 +35,7 @@ module.exports = function(app){
   
   //These routes now reference a users controller file to make this neater
   app.get('/users/create', auth, users.create);
-  app.post('/users/create', auth,users.save);//would like to remove this so that we only reference save , will need to update save method in users controller
+  app.post('/users/create', auth,users.save);
   app.get('/users/update/:userId',auth, users.update);  
   app.post('/users/update', auth, users.save);
   
