@@ -13,7 +13,8 @@ var user = new Schema({
                       firstName: String,
                       secondName: String,
                       email: String,
-                      password: String});
+                      password: String,
+                      role: {type: String,lowercase: true, enum: ["admin","user"]}});
                       
 user.pre('save', function (next) {
   this.password = Password.hash(this.password);

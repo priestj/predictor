@@ -38,12 +38,14 @@ exports.create = function(res){
   labels.push(put('label[for=secondName]',"Second Name"));  
   labels.push(put('label[for=email]',"Email"));
   labels.push(put('label[for=password]',"Password"));
+   labels.push(put('label[for=role]',"Role"));
   var fields = [];
   fields.push(put("input[type=text][name=$][id=userName]",'user[userName]'));//we need to use the sting substitution to get
   fields.push(put("input[type=text][name=$][id=firstName]",'user[firstName]')); //the user[myfield] notation to work as
   fields.push(put("input[type=text][name=$][id=secondName]",'user[secondName]')); //put-selector has issues escaping the []
   fields.push(put("input[type=text][name=$][id=email]",'user[email]'));
-    fields.push(put("input[type=text][name=$][id=password]",'user[password]'));
+  fields.push(put("input[type=text][name=$][id=password]",'user[password]'));
+  fields.push(put("input[type=text][name=$][id=role]",'user[role]'));
                 for (var x in fields)
                 {
                 //form.put(labels[x],"+",fields[x],"+ br");
@@ -74,6 +76,7 @@ exports.update = function(res, req, p){
                 labels.push(put('label[for=secondName]',"Second Name"));
                 labels.push(put('label[for=email]',"Email"));
                   labels.push(put('label[for=password]',"Password"));
+                  labels.push(put('label[for=role]',"Role"));
 
                // labels.push(put('label[for=_id]',"_id"));
                 var fields = [];
@@ -82,6 +85,7 @@ exports.update = function(res, req, p){
                 fields.push(put("input[type=text][name=$][id=secondName][value=$]",'user[secondName]',p.secondName)); //put-selector has issues escaping the []
                 fields.push(put("input[type=text][name=$][id=email][value=$]",'user[email]',p.email));
                 fields.push(put("input[type=text][name=$][id=password][value=$]",'user[password]',p.password));
+                fields.push(put("input[type=text][name=$][id=role][value=$]",'user[role]',p.role));
                 fields.push(put("input[type=hidden][name=$][id=_id][value=$]",'user[_id]',req.params.userId));                        
                 for (var x in fields)
                 {

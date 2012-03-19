@@ -64,7 +64,7 @@ exports.save = function(req, res) {
                 existingUser.secondName = postedUser.secondName;
                 existingUser.password = postedUser.password;
                 existingUser.email = postedUser.email;
-
+                existingUser.role = postedUser.role;
                 existingUser.save(function(err) {
                     if (err) {
                         console.log('utoh ' + err);

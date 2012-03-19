@@ -36,6 +36,7 @@ exports.loginAuthenticate = function (req, res) {
 
                     req.session.newUserName = userFound.userName;
                     req.session.loggedIn = true;
+                    req.session.userRole = userFound.role;
                     res.redirect('/users');
                 }
                 else {
